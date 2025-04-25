@@ -72,10 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get the page name
             const pageName = this.closest('li').getAttribute('data-name');
 
-            // Load the page content dynamically
-            loadPageContent(pageName);
-            
-            // If Guests is clicked, show subnav and button, else hide both
             if (hasSubNav(pageName)) {
                 subNavContainer.classList.add('open');
                 appContainer.classList.add('show-subnav-btn');
@@ -85,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     overviewSubnav.click();
                 }
             } else {
+                // Load the page content dynamically for non-subnav pages
+                loadPageContent(pageName);
                 subNavContainer.classList.remove('open');
                 appContainer.classList.remove('show-subnav-btn');
             }
