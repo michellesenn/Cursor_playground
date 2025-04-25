@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Prototype</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="logo">
+            <img src="assets/Logo Icon.svg" alt="Logo" width="32" height="32" />
+        </div>
+        <div class="search-bar">
+            <img src="assets/search.svg" alt="Search" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;" />
+            <input type="text" placeholder="Find anything at Toast" style="padding-left:40px;">
+        </div>
+        <div class="header-icons">
+            <img src="assets/cart.svg" alt="Cart" width="24" height="24" />
+            <img src="assets/chefs-hat.svg" alt="Chef" width="24" height="24" />
+            <img src="assets/toast-account.svg" alt="User" width="24" height="24" />
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <ul>
+                <li data-name="Home">
+                    <a href="#"><img src="assets/home.svg" alt="Home" width="24" height="24" /><span>Home</span></a>
+                </li>
+                <li data-name="Reports">
+                    <a href="#"><img src="assets/reports.svg" alt="Reports" width="24" height="24" /><span>Reports</span></a>
+                </li>
+                
+                <li class="main-nav-divider">
+                    <div></div>
+                </li>
+                
+                <li data-name="Employees">
+                    <a href="#"><img src="assets/employees.svg" alt="Employees" width="24" height="24" /><span>Employees</span></a>
+                </li>
+                <li data-name="Payroll">
+                    <a href="#"><img src="assets/payroll-employee.svg" alt="Payroll" width="24" height="24" /><span>Payroll</span></a>
+                </li>
+                <li data-name="Menus">
+                    <a href="#"><img src="assets/menus.svg" alt="Menus" width="24" height="24" /><span>Menus</span></a>
+                </li>
+                <li data-name="Takeout">
+                    <a href="#"><img src="assets/pick-up.svg" alt="Takeout & delivery" width="24" height="24" /><span>Takeout & delivery</span></a>
+                </li>
+                <li data-name="Catering">
+                    <a href="#"><img src="assets/serving-tray.svg" alt="Catering & events" width="24" height="24" /><span>Catering & events</span></a>
+                </li>
+                <li data-name="Payments">
+                    <a href="#"><img src="assets/payments.svg" alt="Payments" width="24" height="24" /><span>Payments</span></a>
+                </li>
+                <li data-name="Guests">
+                    <a href="#" class="active"><img src="assets/guest.svg" alt="Guests" width="24" height="24" /><span>Guests</span></a>
+                </li>
+                <li data-name="Marketing">
+                    <a href="#"><img src="assets/marketing.svg" alt="Marketing" width="24" height="24" /><span>Marketing</span></a>
+                </li>
+                <li data-name="FrontOfHouse">
+                    <a href="#"><img src="assets/serving-tray.svg" alt="Front of house" width="24" height="24" /><span>Front of house</span></a>
+                </li>
+                <li data-name="Kitchen">
+                    <a href="#"><img src="assets/chefs-hat.svg" alt="Kitchen" width="24" height="24" /><span>Kitchen</span></a>
+                </li>
+                <li data-name="Xtrachef">
+                    <a href="#"><img src="assets/xtrachef-logo.svg" alt="xtraCHEF" width="24" height="24" /><span>xtraCHEF</span></a>
+                </li>
+                <li data-name="Waitlist">
+                    <a href="#"><img src="assets/special-request.svg" alt="Waitlist & reservations" width="24" height="24" /><span>Waitlist & reservations</span></a>
+                </li>
+                <li data-name="Retail">
+                    <a href="#"><img src="assets/bank.svg" alt="Retail" width="24" height="24" /><span>Retail</span></a>
+                </li>
+                <li data-name="Scheduling">
+                    <a href="#"><img src="assets/sling-logo.svg" alt="Scheduling" width="24" height="24" /><span>Scheduling</span></a>
+                </li>
+                <li data-name="Websites">
+                    <a href="#"><img src="assets/computer-brush.svg" alt="Websites" width="24" height="24" /><span>Websites</span></a>
+                </li>
+                <li data-name="ManagerLog">
+                    <a href="#"><img src="assets/special-request.svg" alt="Manager log" width="24" height="24" /><span>Manager log</span></a>
+                </li>
+                
+                <li class="main-nav-divider">
+                    <div></div>
+                </li>
+                
+                <li data-name="Financial">
+                    <a href="#"><img src="assets/bank.svg" alt="Financial products" width="24" height="24" /><span>Financial products</span></a>
+                </li>
+                <li data-name="Integrations">
+                    <a href="#"><img src="assets/integrations.svg" alt="Integrations" width="24" height="24" /><span>Integrations</span></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Sub Navigation -->
+        <div class="sub-nav-container open">
+            <button class="toggle-subnav">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <nav class="sub-nav">
+                <div class="sub-nav-section">
+                    <a href="#" class="active" id="subnav-overview">Overview</a>
+                    <div class="sub-nav-divider"></div>
+                    <a href="#" id="subnav-directory">Guest directory</a>
+                    <a href="#" id="subnav-insights">Guest insights</a>
+                </div>
+                
+                <div class="sub-nav-divider"></div>
+                
+                <div class="sub-nav-section">
+                    <a href="#" id="subnav-feedback">Feedback inbox</a>
+                    <a href="#" id="subnav-menu-feedback">Menu item feedback</a>
+                    <a href="#" id="subnav-feedback-insights">Feedback insights</a>
+                </div>
+                
+                <div class="sub-nav-divider"></div>
+                
+                <div class="sub-nav-section">
+                    <a href="#" id="subnav-settings">Settings</a>
+                </div>
+            </nav>
+        </div>
+        <button class="subnav-collapse-btn" aria-label="Collapse subnav">
+            <img src="assets/arrow.svg" alt="Collapse" width="24" height="24" />
+        </button>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <div class="content-inner">
+                <div class="content-title-block">
+                    <div class="content-title" id="content-title">Overview</div>
+                    <div class="content-desc" id="content-desc">This is the content for Overview</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
