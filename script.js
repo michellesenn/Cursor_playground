@@ -8,10 +8,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const subNavItems = document.querySelectorAll('.sub-nav a');
     const contentTitle = document.getElementById('content-title');
     const contentDesc = document.getElementById('content-desc');
+    const mainContent = document.querySelector('main.content');
 
     // Helper: does this main nav have a subnav?
     function hasSubNav(pageName) {
         return pageName === 'Guests';
+    }
+
+    // Load page content dynamically
+    async function loadPageContent(pageName) {
+        const folder = pageName.toLowerCase();
+        const url = `pages/${folder}/content.html`;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error('Not found');
+            const html = await response.text();
+            mainContent.innerHTML = html;
+        } catch (err) {
+            mainContent.innerHTML = `<div class="content-inner"><div class="content-title-block"><h1 class="content-title">${pageName}</h1><div class="content-desc">No content found for this page.</div></div></div>`;
+        }
     }
 
     // Adjust content margin based on sub nav state
@@ -56,25 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get the page name
             const pageName = this.closest('li').getAttribute('data-name');
+
+            // Load the page content dynamically
+            loadPageContent(pageName);
             
             // If Guests is clicked, show subnav and button, else hide both
             if (hasSubNav(pageName)) {
                 subNavContainer.classList.add('open');
                 appContainer.classList.add('show-subnav-btn');
-                // Set content to the active subnav item
-                const activeSub = document.querySelector('.sub-nav a.active');
-                if (activeSub && contentTitle && contentDesc) {
-                    contentTitle.textContent = activeSub.textContent;
-                    contentDesc.textContent = `This is the content for ${activeSub.textContent}`;
+                // Programmatically trigger click on Overview subnav
+                const overviewSubnav = document.getElementById('subnav-overview');
+                if (overviewSubnav) {
+                    overviewSubnav.click();
                 }
             } else {
                 subNavContainer.classList.remove('open');
                 appContainer.classList.remove('show-subnav-btn');
-                // Set content to the main nav title
-                if (contentTitle && contentDesc) {
-                    contentTitle.textContent = this.querySelector('span')?.textContent || pageName;
-                    contentDesc.textContent = `This is the content for ${this.querySelector('span')?.textContent || pageName}`;
-                }
             }
             
             adjustContentMargin();
@@ -85,8 +97,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const initialActive = document.querySelector('.main-nav a.active');
     if (initialActive && hasSubNav(initialActive.closest('li').getAttribute('data-name'))) {
         appContainer.classList.add('show-subnav-btn');
+        // Programmatically trigger click on Overview subnav for initial load
+        const overviewSubnav = document.getElementById('subnav-overview');
+        if (overviewSubnav) {
+            overviewSubnav.click();
+        }
     } else {
         appContainer.classList.remove('show-subnav-btn');
+    }
+
+    // Load initial content
+    if (initialActive) {
+        const initialPage = initialActive.closest('li').getAttribute('data-name');
+        loadPageContent(initialPage);
     }
 
     // Handle sub navigation click
@@ -100,12 +123,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked item
             this.classList.add('active');
             
-            // Update content title and description
-            if (contentTitle) {
-                contentTitle.textContent = this.textContent;
-            }
-            if (contentDesc) {
-                contentDesc.textContent = `This is the content for ${this.textContent}`;
+            // Get subnav id (e.g., 'overview', 'directory', etc.)
+            const subnavId = this.id ? this.id.replace('subnav-', '') : null;
+            if (subnavId) {
+                // Load the subnav content dynamically
+                const url = `pages/guests/${subnavId}/content.html`;
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Not found');
+                        return response.text();
+                    })
+                    .then(html => {
+                        mainContent.innerHTML = html;
+                    })
+                    .catch(() => {
+                        mainContent.innerHTML = `<div class="content-inner"><div class="content-title-block"><h1 class="content-title">${this.textContent}</h1><div class="content-desc">No content found for this section.</div></div></div>`;
+                    });
             }
         });
     });
