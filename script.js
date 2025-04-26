@@ -14,17 +14,25 @@ document.addEventListener('DOMContentLoaded', function() {
         return pageName === 'Guests';
     }
 
-    // Show/hide guests overview content
+    // Show/hide guests overview content and decor
     function showGuestsOverviewContent(show) {
         const overviewContent = document.getElementById('guests-overview-content');
         const defaultContent = document.getElementById('default-content');
+        const decorLeft = document.getElementById('decor-lines-left');
+        const decorRight = document.getElementById('decor-lines-right');
         if (overviewContent && defaultContent) {
             if (show) {
                 overviewContent.style.display = '';
                 defaultContent.style.display = 'none';
+                if (decorLeft) decorLeft.style.display = '';
+                if (decorRight) decorRight.style.display = '';
+                if (appContainer) appContainer.classList.add('show-subnav-btn');
             } else {
                 overviewContent.style.display = 'none';
                 defaultContent.style.display = '';
+                if (decorLeft) decorLeft.style.display = 'none';
+                if (decorRight) decorRight.style.display = 'none';
+                if (appContainer) appContainer.classList.remove('show-subnav-btn');
             }
         }
     }
