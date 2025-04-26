@@ -593,4 +593,13 @@ p {
 
 .main-nav:not(:hover):not(.expanded) a {
     padding-right: 12px;
+}
+
+.page-content {
+    opacity: 1;
+    transition: opacity 0.3s cubic-bezier(.4,0,.2,1);
+}
+.page-content.hidden {
+    opacity: 0;
+    pointer-events: none;
 } 

@@ -140,13 +140,13 @@
 
         <!-- Main Content Area -->
         <main class="content">
-            <div class="content-inner" id="default-content" style="padding:40px 80px 0 80px; position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start;">
+            <div class="content-inner page-content" id="default-content" style="padding:40px 80px 0 80px; position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start;">
                 <div class="content-title-block" style="align-items:flex-start;">
                     <div class="content-title" id="content-title" style="text-align:left;">Overview</div>
                     <div class="content-desc" id="content-desc" style="text-align:left;">This is the content for Overview</div>
                 </div>
             </div>
-            <div id="guests-overview-content" class="overview-content-inner" style="display:none; max-width:1200px; margin:0 auto; padding:80px; position:relative; z-index:2; flex-direction:column; gap:56px; align-items:center;">
+            <div id="guests-overview-content" class="overview-content-inner page-content" style="display:none; max-width:1200px; margin:0 auto; padding:80px; position:relative; z-index:2; flex-direction:column; gap:56px; align-items:center;">
                 <div style="width: 100%; flex-direction: column; justify-content: flex-start; align-items: center; gap: 40px; display: flex">
                     <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: flex">
                         <div style="flex-direction: column; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
@@ -158,10 +158,116 @@
                         </div>
                     </div>
                 </div>
+                <!-- Operational Segment Cards START -->
+                <div style="align-self: stretch; width: 100%; justify-content: center; align-items: flex-start; gap: 16px; display: flex; margin-bottom: 40px;">
+                  <div class="guests-overview-card" style="flex: 1 1 0; min-width: 0; padding: 16px; background: var(--background-color-bg-default, white); overflow: hidden; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                    <div style="width: 52px; height: 52px; background: var(--color-secondary-grass-grass-0, #E8F7D4); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 14px;">
+                      <div data-svg-wrapper style="position: relative; display: flex; align-items: center; height: 100%;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.8 10.7C14.9 9.6 13.6 8.9 12 8.9C10.5 8.9 9.2 9.6 8.3 10.7M10.6 20.5C9.7 19.4 8.4 18.7 6.8 18.7C5.3 18.7 3.9 19.4 3 20.5M21 20.5C20.1 19.4 18.8 18.7 17.2 18.7C15.7 18.7 14.3 19.4 13.4 20.5M14.8 6.2C14.8 7.69117 13.5912 8.9 12.1 8.9C10.6088 8.9 9.4 7.69117 9.4 6.2C9.4 4.70883 10.6088 3.5 12.1 3.5C13.5912 3.5 14.8 4.70883 14.8 6.2ZM9.5 15.9C9.5 17.3912 8.29117 18.6 6.8 18.6C5.30883 18.6 4.1 17.3912 4.1 15.9C4.1 14.4088 5.30883 13.2 6.8 13.2C8.29117 13.2 9.5 14.4088 9.5 15.9ZM20 15.9C20 17.3912 18.7912 18.6 17.3 18.6C15.8088 18.6 14.6 17.3912 14.6 15.9C14.6 14.4088 15.8088 13.2 17.3 13.2C18.7912 13.2 20 14.4088 20 15.9Z" stroke="var(--color-secondary-grass-grass-75, #227800)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                        <div style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; display: flex">
+                          <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                            <div style="color: var(--text-color-text-default, #252525); font-size: 16px; font-family: Source Sans Pro; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">All guests</div>
+                          </div>
+                          <div style="color: var(--text-color-text-action, #2B4FB9); font-size: 26px; font-family: Source Sans Pro; font-weight: 600; line-height: 32px; word-wrap: break-word">5,000</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="guests-overview-card" style="flex: 1 1 0; min-width: 0; padding: 16px; background: var(--background-color-bg-default, white); overflow: hidden; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                    <div style="width: 52px; height: 52px; background: var(--color-secondary-sky-sky-0, #E3F0FB); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 14px;">
+                      <div data-svg-wrapper style="position: relative; display: flex; align-items: center; height: 100%;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.0001 22L2.15393 10.6154L5.92394 6.92308H18.0762L21.8462 10.6154L12.0001 22ZM12.0001 22L7.57693 10.6154L11.6315 7.23077M12.0001 22L16.0001 10.6154L12.0001 7.23077M21.5385 10.6154H2.46155M12.0001 2V4.46152M6.69231 3.23077L8.46154 4.96154M17.7309 3.23077L16.0001 4.96154" stroke="var(--color-secondary-sky-sky-75, #3D4089)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                        <div style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; display: flex">
+                          <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                            <div style="color: var(--text-color-text-default, #252525); font-size: 16px; font-family: Source Sans Pro; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">Loyalty members</div>
+                          </div>
+                          <div style="color: var(--text-color-text-action, #2B4FB9); font-size: 26px; font-family: Source Sans Pro; font-weight: 600; line-height: 32px; word-wrap: break-word">50</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="guests-overview-card" style="flex: 1 1 0; min-width: 0; padding: 16px; background: var(--background-color-bg-default, white); overflow: hidden; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                    <div style="width: 52px; height: 52px; background: var(--color-secondary-lavender-lavender-0, #F2E7FA); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 14px;">
+                      <div data-svg-wrapper style="position: relative; display: flex; align-items: center; height: 100%;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.9999 8.4L11.9999 12.5L3.9999 8.4M17.9999 18H5.8999C4.7999 18 3.8999 17.1 3.8999 16V8C3.8999 6.9 4.7999 6 5.8999 6H17.9999C19.0999 6 19.9999 6.9 19.9999 8V15.9C19.9999 17.1 19.0999 18 17.9999 18Z" stroke="var(--color-secondary-lavender-lavender-75, #4A25A7)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                        <div style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; display: flex">
+                          <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                            <div style="color: var(--text-color-text-default, #252525); font-size: 16px; font-family: Source Sans Pro; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">Email subscribers</div>
+                          </div>
+                          <div style="color: var(--text-color-text-action, #2B4FB9); font-size: 26px; font-family: Source Sans Pro; font-weight: 600; line-height: 32px; word-wrap: break-word">400</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="guests-overview-card" style="flex: 1 1 0; min-width: 0; padding: 16px; background: var(--background-color-bg-default, white); overflow: hidden; border-radius: 12px; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                    <div style="width: 52px; height: 52px; background: var(--color-secondary-terra-cotta-terra-cotta-0, #FFE6E9); border-radius: 8px; display: flex; align-items: center; justify-content: center; padding: 14px;">
+                      <div data-svg-wrapper style="position: relative; display: flex; align-items: center; height: 100%;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5696 3C14.3135 3.00193 16.0141 3.54367 17.4379 4.55083C18.8616 5.55799 19.9386 6.98119 20.5211 8.625C21.1002 10.2741 21.1547 12.062 20.677 13.7433C20.1993 15.4246 19.2128 16.9168 17.8531 18.015C16.531 19.0746 14.921 19.7127 13.232 19.8464C11.5429 19.9802 9.85261 19.6034 8.38022 18.765L3.80123 20.9475C3.72647 20.9834 3.64434 21.0014 3.56141 21C3.41264 20.9985 3.27027 20.9393 3.16422 20.835C3.08361 20.7523 3.02976 20.6473 3.00971 20.5336C2.98966 20.4199 3.00433 20.3027 3.05179 20.1975L5.23264 15.6075C4.51276 14.3481 4.13036 12.924 4.12247 11.4734C4.11459 10.0228 4.48149 8.59468 5.18764 7.32749C5.91725 6.01567 6.98426 4.92274 8.2782 4.16187C9.57214 3.40101 11.046 2.99987 12.547 3H12.5696Z" stroke="var(--color-secondary-terra-cotta-terra-cotta-75, #B12910)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12.6162 12.375C13.1685 12.375 13.6162 11.9273 13.6162 11.375C13.6162 10.8227 13.1685 10.375 12.6162 10.375C12.0639 10.375 11.6162 10.8227 11.6162 11.375C11.6162 11.9273 12.0639 12.375 12.6162 12.375Z" fill="var(--color-secondary-terra-cotta-terra-cotta-75, #B12910)"/>
+                        <path d="M8.61621 12.375C9.1685 12.375 9.61621 11.9273 9.61621 11.375C9.61621 10.8227 9.1685 10.375 8.61621 10.375C8.06393 10.375 7.61621 10.8227 7.61621 11.375C7.61621 11.9273 8.06393 12.375 8.61621 12.375Z" fill="var(--color-secondary-terra-cotta-terra-cotta-75, #B12910)"/>
+                        <path d="M16.6162 12.375C17.1685 12.375 17.6162 11.9273 17.6162 11.375C17.6162 10.8227 17.1685 10.375 16.6162 10.375C16.0639 10.375 15.6162 10.8227 15.6162 11.375C15.6162 11.9273 16.0639 12.375 16.6162 12.375Z" fill="var(--color-secondary-terra-cotta-terra-cotta-75, #B12910)"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 16px; display: inline-flex">
+                      <div style="flex: 1 1 0; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 4px; display: inline-flex">
+                        <div style="align-self: stretch; flex-direction: column; justify-content: center; align-items: flex-start; gap: 4px; display: flex">
+                          <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; display: inline-flex">
+                            <div style="color: var(--text-color-text-default, #252525); font-size: 16px; font-family: Source Sans Pro; font-weight: 600; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">SMS subscribers</div>
+                          </div>
+                          <div style="color: var(--text-color-text-action, #2B4FB9); font-size: 26px; font-family: Source Sans Pro; font-weight: 600; line-height: 32px; word-wrap: break-word">0</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Operational Segment Cards END -->
+                <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: center; gap: 24px; display: inline-flex; width: 100%; padding-left: 120px; padding-right: 120px; box-sizing: border-box; margin-bottom: 40px;">
+                  <div style="width: 100%; max-width: 760px; flex-direction: column; justify-content: flex-start; align-items: center; gap: 16px; display: flex; margin: 0 auto;">
+                    <div data-size="Mobile" data-state="Default" style="align-self: stretch; height: 48px; padding-left: 12px; padding-right: 24px; background: var(--background-color-bg-default, white); border-radius: 100px; outline: 1px var(--border-color-border-default, rgba(0, 0, 0, 0.12)) solid; outline-offset: -1px; justify-content: flex-start; align-items: center; gap: 12px; display: inline-flex">
+                      <div data-svg-wrapper style="position: relative; display: flex; align-items: center; height: 100%;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.15 15.15L20.75 20.75M16.85 10.05C16.85 13.8055 13.8055 16.85 10.05 16.85C6.29446 16.85 3.25 13.8055 3.25 10.05C3.25 6.29446 6.29446 3.25 10.05 3.25C13.8055 3.25 16.85 6.29446 16.85 10.05Z" stroke="var(--icon-color-icon-default, #666666)" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                      <div style="flex: 1 1 0; height: 24px; color: var(--text-color-text-hint, #7A7A7A); font-size: 16px; font-family: Source Sans Pro; font-weight: 400; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word; display: flex; align-items: center;">Search guest by name, phone, email, ...</div>
+                    </div>
+                    <div style="justify-content: center; align-items: flex-start; gap: 12px; display: flex; width: 100%;">
+                      <div data-deletable="False" data-size="Small" data-state="Default" style="height: 40px; padding-left: 24px; padding-right: 24px; padding-top: 4px; padding-bottom: 4px; background: var(--color-neutral-opacity-white-opacity-white-60, rgba(255, 255, 255, 0.60)); overflow: hidden; border-radius: 80px; justify-content: center; align-items: center; display: flex">
+                        <div style="justify-content: center; display: flex; flex-direction: column; color: #252525; font-size: 16px; font-family: Source Sans Pro; font-weight: 400; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">❤️  Regulars</div>
+                      </div>
+                      <div data-deletable="False" data-size="Small" data-state="Default" style="height: 40px; padding-left: 24px; padding-right: 24px; padding-top: 4px; padding-bottom: 4px; background: var(--color-neutral-opacity-white-opacity-white-60, rgba(255, 255, 255, 0.60)); overflow: hidden; border-radius: 80px; justify-content: center; align-items: center; display: flex">
+                        <div style="justify-content: center; display: flex; flex-direction: column; color: #252525; font-size: 16px; font-family: Source Sans Pro; font-weight: 400; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">💰️️  Big spenders</div>
+                      </div>
+                      <div data-deletable="False" data-size="Small" data-state="Default" style="height: 40px; padding-left: 24px; padding-right: 24px; padding-top: 4px; padding-bottom: 4px; background: var(--color-neutral-opacity-white-opacity-white-60, rgba(255, 255, 255, 0.60)); overflow: hidden; border-radius: 80px; justify-content: center; align-items: center; display: flex">
+                        <div style="justify-content: center; display: flex; flex-direction: column; color: #252525; font-size: 16px; font-family: Source Sans Pro; font-weight: 400; line-height: 24px; letter-spacing: 0.20px; word-wrap: break-word">😢️️  Lapsed guests</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div style="align-self: stretch; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 24px; display: flex">
                     <div style="align-self: stretch; justify-content: flex-start; align-items: flex-start; gap: 24px; display: inline-flex; flex-wrap: wrap; align-content: flex-start">
                         <div class="guests-overview-card" style="flex: 1 1 0; padding: 24px; background: var(--background-color-bg-default, white); border-radius: 12px; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
-                            <div style="padding: 8px; background: #FFE6E9; border-radius: 8px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
+                            <div style="padding: 8px; background: #E3F0FB; border-radius: 8px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M15.8 10.7C14.9 9.6 13.6 8.9 12 8.9C10.5 8.9 9.2 9.6 8.3 10.7M10.6 20.5C9.7 19.4 8.4 18.7 6.8 18.7C5.3 18.7 3.9 19.4 3 20.5M21 20.5C20.1 19.4 18.8 18.7 17.2 18.7C15.7 18.7 14.3 19.4 13.4 20.5M14.8 6.2C14.8 7.69117 13.5912 8.9 12.1 8.9C10.6088 8.9 9.4 7.69117 9.4 6.2C9.4 4.70883 10.6088 3.5 12.1 3.5C13.5912 3.5 14.8 4.70883 14.8 6.2ZM9.5 15.9C9.5 17.3912 8.29117 18.6 6.8 18.6C5.30883 18.6 4.1 17.3912 4.1 15.9C4.1 14.4088 5.30883 13.2 6.8 13.2C8.29117 13.2 9.5 14.4088 9.5 15.9ZM20 15.9C20 17.3912 18.7912 18.6 17.3 18.6C15.8088 18.6 14.6 17.3912 14.6 15.9C14.6 14.4088 15.8088 13.2 17.3 13.2C18.7912 13.2 20 14.4088 20 15.9Z" stroke="#252525" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
@@ -188,7 +294,7 @@
                             <div class="guests-overview-card" style="flex: 1 1 0; padding: 24px; background: var(--background-color-bg-default, white); border-radius: 12px; justify-content: flex-start; align-items: center; gap: 16px; display: flex">
                                 <div style="padding: 8px; background: #E3F0FB; border-radius: 8px; justify-content: flex-start; align-items: center; gap: 8px; display: flex">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5696 3C14.3135 3.00193 16.0141 3.54367 17.4379 4.55083C18.8616 5.55799 19.9386 6.98119 20.5211 8.625C21.1002 10.2741 21.1547 12.062 20.677 13.7433C20.1993 15.4246 19.2128 16.9168 17.8531 18.015C16.531 19.0746 14.921 19.7127 13.232 19.8464C11.5429 19.9802 9.85261 19.6034 8.38022 18.765L3.80123 20.9475C3.72647 20.9834 3.64434 21.0014 3.56141 21C3.41264 20.9985 3.27027 20.9393 3.16422 20.835C3.08361 20.7523 3.02976 20.6473 3.00971 20.5336C2.98966 20.4199 3.00433 20.3027 3.05179 20.1975L5.23264 15.6075C4.51276 14.3481 4.13036 12.924 4.12247 11.4734C4.11459 10.0228 4.48149 8.59468 5.18764 7.32749C5.91725 6.01567 6.98426 4.92274 8.2782 4.16187C9.57214 3.40101 11.046 2.99987 12.547 3H12.5696Z" stroke="#252525" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M12.5696 3C14.3135 3.00193 16.0141 3.54367 17.4379 4.55083C18.8616 5.55799 19.9386 6.98119 20.5211 8.625C21.1002 10.2741 21.1547 12.062 20.677 13.7433C20.1993 15.4246 19.2128 16.9168 17.8531 18.015C16.531 19.0746 14.921 19.7127 13.232 19.8464C11.5429 19.9802 9.85261 19.6034 8.38022 18.765L3.80123 20.9475C3.72647 20.9834 3.64434 21.0014 3.56141 21C3.41264 20.9985 3.27027 20.9393 3.16422 20.835C3.08361 20.7523 3.02976 20.6473 3.00971 20.5336C2.98966 20.4199 3.00433 20.3027 3.05179 20.1975L5.23264 15.6075C4.51276 14.3481 4.13036 12.924 4.12247 11.4734C4.11459 10.0228 4.48149 8.59468 5.18764 7.32749C5.91725 6.01567 6.98426 4.92274 8.2782 4.16187C9.57214 3.40101 11.046 2.99987 12.547 3H12.5696Z" stroke="#252525" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <circle cx="12.6162" cy="11.375" r="1" fill="#252525"/>
                                         <circle cx="8.61621" cy="11.375" r="1" fill="#252525"/>
                                         <circle cx="16.6162" cy="11.375" r="1" fill="#252525"/>

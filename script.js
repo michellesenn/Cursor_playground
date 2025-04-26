@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const defaultContent = document.getElementById('default-content');
         const decorLeft = document.getElementById('decor-lines-left');
         const decorRight = document.getElementById('decor-lines-right');
+        const appContainer = document.querySelector('.app-container');
         if (overviewContent && defaultContent) {
             if (show) {
                 overviewContent.style.display = '';
