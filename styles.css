@@ -144,7 +144,9 @@ body {
     align-items: center;
     text-decoration: none;
     color: var(--text-color);
-    padding: 8px 16px 8px 20px;
+    padding: 8px 12px;
+    margin: 0 8px;
+    border-radius: 12px;
     transition: all 0.3s ease;
     white-space: nowrap;
     font-size: 14px;
@@ -160,14 +162,10 @@ body {
 }
 
 .main-nav a span {
-    display: none;
     margin-left: 8px;
-    transition: opacity 0.3s;
-}
-
-.main-nav:hover a span,
-.main-nav.expanded a span {
-    display: inline;
+    transition: margin 0.3s, opacity 0.3s;
+    display: none;
+    opacity: 0;
 }
 
 .main-nav:hover a,
@@ -175,8 +173,16 @@ body {
     justify-content: flex-start;
 }
 
+.main-nav:hover a span,
+.main-nav.expanded a span {
+    display: inline;
+    opacity: 1;
+}
+
 .main-nav a:hover {
     background-color: var(--hover-color);
+    border-radius: 12px;
+    margin: 0 6px;
 }
 
 .main-nav a.active {
@@ -184,6 +190,8 @@ body {
     color: #DB3B11 !important;
     font-weight: 600;
     position: relative;
+    border-radius: 12px;
+    margin: 0 6px;
 }
 
 .main-nav a.active i {
@@ -557,11 +565,12 @@ p {
     margin-top: 0;
 }
 
-.guests-overview-cards {
+.guests-overview-cards, .guests-overview-content > div[style*='inline-flex'] {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
     perspective: 1200px;
+    align-items: stretch;
 }
 
 .guests-overview-card {
@@ -572,11 +581,16 @@ p {
     border-radius: 12px;
     padding: 24px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
     flex: 1 1 0;
+    height: 100%;
 }
 
 .guests-overview-card:hover {
     box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.main-nav:not(:hover):not(.expanded) a {
+    padding-right: 12px;
 } 
