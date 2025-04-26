@@ -8,24 +8,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const subNavItems = document.querySelectorAll('.sub-nav a');
     const contentTitle = document.getElementById('content-title');
     const contentDesc = document.getElementById('content-desc');
-    const mainContent = document.querySelector('main.content');
 
     // Helper: does this main nav have a subnav?
     function hasSubNav(pageName) {
         return pageName === 'Guests';
     }
 
-    // Load page content dynamically
-    async function loadPageContent(pageName) {
-        const folder = pageName.toLowerCase();
-        const url = `pages/${folder}/content.html`;
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error('Not found');
-            const html = await response.text();
-            mainContent.innerHTML = html;
-        } catch (err) {
-            mainContent.innerHTML = `<div class="content-inner"><div class="content-title-block"><h1 class="content-title">${pageName}</h1><div class="content-desc">No content found for this page.</div></div></div>`;
+    // Show/hide guests overview content
+    function showGuestsOverviewContent(show) {
+        const overviewContent = document.getElementById('guests-overview-content');
+        const defaultContent = document.getElementById('default-content');
+        if (overviewContent && defaultContent) {
+            if (show) {
+                overviewContent.style.display = '';
+                defaultContent.style.display = 'none';
+            } else {
+                overviewContent.style.display = 'none';
+                defaultContent.style.display = '';
+            }
         }
     }
 
@@ -58,6 +58,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Initial state: show guests overview if Guests > Overview is active
+    const initialActive = document.querySelector('.main-nav a.active');
+    const initialSubActive = document.querySelector('.sub-nav a.active');
+    if (initialActive && hasSubNav(initialActive.closest('li').getAttribute('data-name')) && initialSubActive && initialSubActive.id === 'subnav-overview') {
+        showGuestsOverviewContent(true);
+    } else {
+        showGuestsOverviewContent(false);
+    }
+
+    // Helper: get dynamic greeting
+    function getGreeting() {
+        const now = new Date();
+        const hour = now.getHours();
+        if (hour < 12) return 'Good morning';
+        if (hour < 18) return 'Good afternoon';
+        return 'Good evening';
+    }
+
+    // Set dynamic greeting for guests overview
+    function setDynamicGreeting() {
+        const greetingTitle = document.getElementById('greeting-title');
+        if (greetingTitle) {
+            greetingTitle.textContent = `${getGreeting()} Lisa,`;
+        }
+    }
+
+    // Call on load and when switching to guests overview
+    setDynamicGreeting();
+    setInterval(setDynamicGreeting, 60000); // Update greeting every minute
+
     // Handle main navigation click
     mainNavItems.forEach(item => {
         item.addEventListener('click', function(e) {
@@ -71,44 +101,38 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get the page name
             const pageName = this.closest('li').getAttribute('data-name');
-
+            
+            // If Guests is clicked, show subnav and button, else hide both
             if (hasSubNav(pageName)) {
                 subNavContainer.classList.add('open');
                 appContainer.classList.add('show-subnav-btn');
-                // Programmatically trigger click on Overview subnav
-                const overviewSubnav = document.getElementById('subnav-overview');
-                if (overviewSubnav) {
-                    overviewSubnav.click();
+                // Set content to the active subnav item
+                const activeSub = document.querySelector('.sub-nav a.active');
+                if (activeSub && contentTitle && contentDesc) {
+                    contentTitle.textContent = activeSub.textContent;
+                    contentDesc.textContent = `This is the content for ${activeSub.textContent}`;
+                }
+                // Show guests overview if Overview is active
+                if (activeSub && activeSub.id === 'subnav-overview') {
+                    showGuestsOverviewContent(true);
+                    setDynamicGreeting();
+                } else {
+                    showGuestsOverviewContent(false);
                 }
             } else {
-                // Load the page content dynamically for non-subnav pages
-                loadPageContent(pageName);
                 subNavContainer.classList.remove('open');
                 appContainer.classList.remove('show-subnav-btn');
+                // Set content to the main nav title
+                if (contentTitle && contentDesc) {
+                    contentTitle.textContent = this.querySelector('span')?.textContent || pageName;
+                    contentDesc.textContent = `This is the content for ${this.querySelector('span')?.textContent || pageName}`;
+                }
+                showGuestsOverviewContent(false);
             }
             
             adjustContentMargin();
         });
     });
-
-    // Initial state: show button only if Guests is active
-    const initialActive = document.querySelector('.main-nav a.active');
-    if (initialActive && hasSubNav(initialActive.closest('li').getAttribute('data-name'))) {
-        appContainer.classList.add('show-subnav-btn');
-        // Programmatically trigger click on Overview subnav for initial load
-        const overviewSubnav = document.getElementById('subnav-overview');
-        if (overviewSubnav) {
-            overviewSubnav.click();
-        }
-    } else {
-        appContainer.classList.remove('show-subnav-btn');
-    }
-
-    // Load initial content
-    if (initialActive) {
-        const initialPage = initialActive.closest('li').getAttribute('data-name');
-        loadPageContent(initialPage);
-    }
 
     // Handle sub navigation click
     subNavItems.forEach(item => {
@@ -121,22 +145,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked item
             this.classList.add('active');
             
-            // Get subnav id (e.g., 'overview', 'directory', etc.)
-            const subnavId = this.id ? this.id.replace('subnav-', '') : null;
-            if (subnavId) {
-                // Load the subnav content dynamically
-                const url = `pages/guests/${subnavId}/content.html`;
-                fetch(url)
-                    .then(response => {
-                        if (!response.ok) throw new Error('Not found');
-                        return response.text();
-                    })
-                    .then(html => {
-                        mainContent.innerHTML = html;
-                    })
-                    .catch(() => {
-                        mainContent.innerHTML = `<div class="content-inner"><div class="content-title-block"><h1 class="content-title">${this.textContent}</h1><div class="content-desc">No content found for this section.</div></div></div>`;
-                    });
+            // Update content title and description
+            if (contentTitle) {
+                contentTitle.textContent = this.textContent;
+            }
+            if (contentDesc) {
+                contentDesc.textContent = `This is the content for ${this.textContent}`;
+            }
+            // Show guests overview if Overview is active
+            if (this.id === 'subnav-overview') {
+                showGuestsOverviewContent(true);
+                setDynamicGreeting();
+            } else {
+                showGuestsOverviewContent(false);
             }
         });
     });
@@ -149,4 +170,46 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Settings clicked');
         });
     }
+
+    // 3D hover effect for guests overview cards (CodePen style)
+    function handleCard3DTilt(card) {
+        let requestId = null;
+        function onMove(e) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * 15; // max 15deg
+            const rotateY = ((x - centerX) / centerX) * -15; // max 15deg
+            if (requestId) cancelAnimationFrame(requestId);
+            requestId = requestAnimationFrame(() => {
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+            });
+        }
+        function onLeave() {
+            if (requestId) cancelAnimationFrame(requestId);
+            card.style.transform = '';
+        }
+        card.addEventListener('mousemove', onMove);
+        card.addEventListener('mouseleave', onLeave);
+    }
+    document.querySelectorAll('.guests-overview-card').forEach(card => {
+        handleCard3DTilt(card);
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            // Find the card's main label (font-weight: 600)
+            const labelDiv = Array.from(card.querySelectorAll('div')).find(div => div.style.fontWeight === '600' || div.style.fontWeight === '600');
+            if (!labelDiv) return;
+            const label = labelDiv.textContent.trim();
+            // Find the subnav link with matching text
+            const subnavLinks = document.querySelectorAll('.sub-nav a');
+            for (const link of subnavLinks) {
+                if (link.textContent.trim() === label) {
+                    link.click();
+                    break;
+                }
+            }
+        });
+    });
 }); 

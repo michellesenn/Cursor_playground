@@ -489,4 +489,74 @@ p {
   .subnav-collapse-btn {
     left: 100vw;
   }
+}
+
+.gradient-title {
+    font-family: 'Effra', 'Source Sans Pro', Arial, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 42px;
+    background: linear-gradient(90deg, #A259E6 0%, #6166DF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    display: block;
+    margin: 0;
+}
+
+.decorative-lines {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+    width: 320px;
+    height: auto;
+    max-width: none;
+    top: 0;
+}
+
+.decorative-lines-left {
+    left: 0;
+}
+
+.decorative-lines-right {
+    right: 0;
+}
+
+.guests-overview-content {
+    position: relative;
+    z-index: 2;
+}
+
+#guests-overview-content .content-title {
+    margin-bottom: 0;
+}
+
+#guests-overview-content .gradient-title {
+    margin-top: 0;
+}
+
+.guests-overview-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    perspective: 1200px;
+}
+
+.guests-overview-card {
+    transition: transform 0.35s cubic-bezier(.19,1,.22,1), box-shadow 0.35s cubic-bezier(.19,1,.22,1);
+    will-change: transform;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background: var(--background-color-bg-default, white);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1 1 0;
+}
+
+.guests-overview-card:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
 } 
